@@ -27,6 +27,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
+Client side routing uses less data and time because it doesn't have to reload everything with a refresh.
+
 > Answer:
 
 ## Project Set Up
