@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import CharacterCard from './CharacterCard';
+import SearchForm from './SearchForm';
 
 export default function CharacterList() {
   let [characters, setCharacters] = useState([]);
+  let [query, setQuery] = useState('');
   useEffect(() => {
     fetch('https://rickandmortyapi.com/api/character/')
       .then(res => res.json())
@@ -12,7 +14,14 @@ export default function CharacterList() {
   return (
     <section className="character-list">
       <h2>Character List</h2>
-      <div>{characters.length ? characters.map(character => <CharacterCard character={character} />) : 'Loading...'}</div>
+      <SearchForm query={query} setQuery={setQuery}/>
+      <div>{
+        characters.length ? 
+          query.length !== 0 ?
+          characters.filter(character => character.name.includes(query)).map(character => <CharacterCard character={character} />)
+          : characters.map(character => <CharacterCard character={character} />) 
+        : 'Loading...'}
+      </div>
     </section>
   );
 }
