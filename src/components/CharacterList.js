@@ -13,7 +13,7 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <h2>Character List</h2>
+      <h2 className="list-title">Character List</h2>
       <SearchForm query={query} setQuery={setQuery}/>
       <div>{
         characters.length ? 
